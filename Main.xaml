@@ -39,6 +39,7 @@
       <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
       <x:String>GlobalVariablesNamespace</x:String>
       <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Linq.Expressions</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -80,9 +81,18 @@
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
       <AssemblyReference>WindowsBase</AssemblyReference>
       <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Description: Using Assests and Queues, previously created in orchestrator, to demonstrate how easily they can be used in Studio." DisplayName="Working with Orchestrator Resources in Studio" sap:VirtualizedContainerService.HintSize="1566,2596" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Description: Using Assests and Queues, previously created in orchestrator, to demonstrate how easily they can be used in Studio." DisplayName="Working with Orchestrator Resources in Studio" sap:VirtualizedContainerService.HintSize="1566,2718" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ss:SecureString" Name="Password" />
       <Variable x:TypeArguments="x:String" Name="Email" />
@@ -185,13 +195,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </uix:NApplicationCard>
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="IfOpenedByAppBrowser" DisplayName="Use Browser Edge: ACME System 1 - Work Items" sap:VirtualizedContainerService.HintSize="552,999" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" ScopeGuid="4653da99-87f1-4241-b465-e78d5104e16b" Version="V1">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="IfOpenedByAppBrowser" DisplayName="Use Browser Edge: ACME System 1 - Work Items" sap:VirtualizedContainerService.HintSize="552,1121" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" ScopeGuid="4653da99-87f1-4241-b465-e78d5104e16b" Version="V1">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Extract each Work Item and populate the ACMEQueue" sap:VirtualizedContainerService.HintSize="518,759" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <Sequence DisplayName="Extract each Work Item and populate the ACMEQueue" sap:VirtualizedContainerService.HintSize="518,881" sap2010:WorkflowViewState.IdRef="Sequence_6">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -214,19 +224,19 @@
                 </uix:NExtractData.Target>
               </uix:NExtractData>
             </Sequence>
-            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_ExtractDataTable]" DisplayName="For Each Work Item in Data Table add it to queue" sap:VirtualizedContainerService.HintSize="484,421" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_ExtractDataTable]" DisplayName="For Each Work Item in Data Table add it to queue" sap:VirtualizedContainerService.HintSize="484,426" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
               <ui:ForEachRow.Body>
                 <ActivityAction x:TypeArguments="sd:DataRow">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Add each Work Item to ACMEQueue" sap:VirtualizedContainerService.HintSize="451,279" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <Sequence DisplayName="Add each Work Item to ACMEQueue" sap:VirtualizedContainerService.HintSize="451,277" sap2010:WorkflowViewState.IdRef="Sequence_5">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Work Item to Queue" FolderPath="mark.deguzman@genzeon.com's workspace" sap:VirtualizedContainerService.HintSize="416,217" sap2010:WorkflowViewState.IdRef="AddQueueItem_1" Priority="Normal" QueueType="workitems.practice.queue">
+                    <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Work Item to Queue" FolderPath="mark.deguzman@genzeon.com's workspace" sap:VirtualizedContainerService.HintSize="416,215" sap2010:WorkflowViewState.IdRef="AddQueueItem_1" Priority="Normal" QueueType="workitems.practice.queue">
                       <ui:AddQueueItem.ItemInformation>
                         <InArgument x:TypeArguments="x:String" x:Key="WIID">[CurrentRow("WIID").ToString]</InArgument>
                         <InArgument x:TypeArguments="x:String" x:Key="Type">[CurrentRow("Type").ToString]</InArgument>
@@ -237,6 +247,7 @@
                 </ActivityAction>
               </ui:ForEachRow.Body>
             </ui:ForEachRow>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,117" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Application Completed&quot;]" />
           </Sequence>
         </ActivityAction>
       </uix:NApplicationCard.Body>
